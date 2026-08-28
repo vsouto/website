@@ -1,0 +1,10 @@
+# Nao vai para o CDN: fonte, dados de build e docs.
+.git
+.gitignore
+.assetsignore
+.github
+wrangler.jsonc
+scripts
+data
+README.md
+preview.html

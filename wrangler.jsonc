@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers com static assets. O site nao tem codigo de servidor:
+  // sem "main", o Worker so serve os arquivos de "assets".
+  "name": "vsouto-website",
+  "compatibility_date": "2026-08-28",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "none"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

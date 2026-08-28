@@ -1,0 +1,540 @@
+/* ============================================================
+   vsouto.com
+   Achromatic ground, one accent. The accent is Braun orange --
+   Rams is the lineage this kind of restraint actually comes from.
+   ============================================================ */
+
+:root{
+  --paper:#FAF9F7;
+  --paper-2:#FFFFFF;
+  --ink:#0E0F10;
+  --ink-2:#3B3E42;
+  --muted:#6B6E72;
+  --hairline:#E4E2DE;
+  --hairline-2:#EFEDE9;
+  --accent:#D8501B;
+  --accent-ink:#FFFFFF;
+  --field-dot:14,15,16;
+  --field-hot:216,80,27;
+  --lift:0 1px 2px rgba(14,15,16,.04), 0 18px 40px -28px rgba(14,15,16,.32);
+  --lift-2:0 2px 4px rgba(14,15,16,.05), 0 34px 60px -30px rgba(14,15,16,.36);
+
+  --step--1:clamp(.78rem,.76rem + .1vw,.83rem);
+  --step-0:clamp(1rem,.97rem + .16vw,1.09rem);
+  --step-1:clamp(1.2rem,1.13rem + .34vw,1.42rem);
+  --step-2:clamp(1.55rem,1.4rem + .74vw,2.1rem);
+  --step-3:clamp(2rem,1.6rem + 2vw,3.1rem);
+
+  --gutter:clamp(20px,5vw,40px);
+  --measure:1080px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A0B0C;
+    --paper-2:#111314;
+    --ink:#F2F1ED;
+    --ink-2:#C4C5C7;
+    --muted:#8B8E93;
+    --hairline:#1F2123;
+    --hairline-2:#191B1D;
+    --accent:#FF6B33;
+    --accent-ink:#160A04;
+    --field-dot:242,241,237;
+    --field-hot:255,107,51;
+    --lift:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -28px rgba(0,0,0,.9);
+    --lift-2:0 2px 4px rgba(0,0,0,.55), 0 34px 60px -30px rgba(0,0,0,.95);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A0B0C;
+  --paper-2:#111314;
+  --ink:#F2F1ED;
+  --ink-2:#C4C5C7;
+  --muted:#8B8E93;
+  --hairline:#1F2123;
+  --hairline-2:#191B1D;
+  --accent:#FF6B33;
+  --accent-ink:#160A04;
+  --field-dot:242,241,237;
+  --field-hot:255,107,51;
+  --lift:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -28px rgba(0,0,0,.9);
+  --lift-2:0 2px 4px rgba(0,0,0,.55), 0 34px 60px -30px rgba(0,0,0,.95);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--step-0);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+::selection{background:var(--accent); color:var(--accent-ink)}
+
+a{color:inherit}
+
+:where(a,button):focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+.shell{
+  width:100%;
+  max-width:var(--measure);
+  margin-inline:auto;
+  padding-inline:var(--gutter);
+}
+
+.eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:var(--step--1);
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ---------------- hero ---------------- */
+
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:grid;
+  align-content:center;
+  overflow:hidden;
+  border-bottom:1px solid var(--hairline);
+}
+
+#field{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* keeps the name legible over the densest part of the field */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:radial-gradient(ellipse 62% 42% at 50% 44%, var(--paper) 0%, transparent 70%);
+  opacity:.78;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  padding-block:14vh 0;
+}
+
+.hero-name{
+  font-family:"Schibsted Grotesk","Instrument Sans",system-ui,sans-serif;
+  font-weight:700;
+  font-size:clamp(2.9rem,11.5vw,8.5rem);
+  line-height:.92;
+  letter-spacing:-.045em;
+  margin:.28em 0 0;
+  text-wrap:balance;
+}
+
+.hero-name .accent{
+  display:block;
+  color:var(--accent);
+}
+
+.hero-line{
+  margin:1.35em 0 0;
+  max-width:34ch;
+  font-size:var(--step-1);
+  line-height:1.45;
+  color:var(--ink-2);
+  text-wrap:pretty;
+}
+
+.hero-cue{
+  position:absolute;
+  left:50%;
+  bottom:clamp(20px,4.5vh,40px);
+  translate:-50% 0;
+  z-index:2;
+  display:grid;
+  justify-items:center;
+  gap:10px;
+  color:var(--muted);
+}
+.hero-cue span{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.hero-cue i{
+  display:block;
+  width:1px;
+  height:38px;
+  background:linear-gradient(var(--hairline),transparent);
+}
+
+/* ---------------- sections ---------------- */
+
+section{padding-block:clamp(72px,11vh,132px)}
+
+.section-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--hairline);
+  margin-bottom:clamp(28px,4vw,48px);
+}
+.section-head h2{
+  font-family:"Schibsted Grotesk","Instrument Sans",sans-serif;
+  font-weight:700;
+  font-size:var(--step-2);
+  letter-spacing:-.028em;
+  line-height:1.1;
+  margin:0;
+}
+
+/* ---------------- identity card ---------------- */
+
+.card{
+  background:var(--paper-2);
+  border:1px solid var(--hairline);
+  border-radius:18px;
+  padding:clamp(28px,4.5vw,52px);
+  box-shadow:var(--lift);
+  display:grid;
+  gap:22px;
+  max-width:640px;
+}
+
+.card-title{
+  font-family:"Schibsted Grotesk","Instrument Sans",sans-serif;
+  font-weight:700;
+  font-size:var(--step-2);
+  letter-spacing:-.026em;
+  line-height:1.15;
+  margin:0;
+}
+.card-desc{
+  margin:14px 0 0;
+  max-width:52ch;
+  color:var(--ink-2);
+  font-size:var(--step-0);
+  line-height:1.62;
+  text-wrap:pretty;
+}
+
+.locale{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:0;
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.flag{
+  display:block;
+  width:22px;
+  height:15.4px;
+  border-radius:2.5px;
+  overflow:hidden;
+  flex:none;
+  /* hairline keeps the green edge from dissolving into a light ground */
+  box-shadow:inset 0 0 0 .5px rgba(14,15,16,.22);
+}
+.flag svg{display:block; width:100%; height:100%}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.tags li{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.74rem;
+  letter-spacing:.04em;
+  padding:7px 12px;
+  border:1px solid var(--hairline);
+  border-radius:999px;
+  color:var(--ink-2);
+  background:var(--paper);
+  white-space:nowrap;
+}
+
+.link-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  padding-top:2px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  text-decoration:none;
+  font-weight:500;
+  font-size:.94rem;
+  padding:11px 18px;
+  border-radius:999px;
+  border:1px solid transparent;
+  transition:background .22s ease, color .22s ease, border-color .22s ease, translate .22s ease;
+}
+.btn svg{width:16px; height:16px; flex:none}
+.btn-solid{
+  background:var(--ink);
+  color:var(--paper);
+}
+.btn-solid:hover{background:var(--accent); color:var(--accent-ink)}
+.btn-ghost{
+  border-color:var(--hairline);
+  color:var(--ink);
+  background:transparent;
+}
+.btn-ghost:hover{border-color:var(--accent); color:var(--accent)}
+.btn:hover{translate:0 -1px}
+
+/* ---------------- work ---------------- */
+
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:clamp(18px,2.4vw,28px);
+}
+
+.work-card{
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  text-decoration:none;
+  background:var(--paper-2);
+  border:1px solid var(--hairline);
+  border-radius:16px;
+  overflow:hidden;
+  transition:border-color .3s ease, box-shadow .3s ease, translate .3s ease;
+}
+.work-card:hover{
+  border-color:var(--hairline);
+  box-shadow:var(--lift-2);
+  translate:0 -4px;
+}
+
+.work-shot{
+  position:relative;
+  aspect-ratio:808/632;
+  overflow:hidden;
+  background:var(--hairline-2);
+  border-bottom:1px solid var(--hairline);
+}
+/* a imagem transborda 7% em cima e embaixo: essa folga e o curso do parallax */
+.work-shot img{
+  position:absolute;
+  inset:-7% 0;
+  display:block;
+  width:100%;
+  height:114%;
+  object-fit:cover;
+  transition:scale .5s cubic-bezier(.2,.6,.2,1);
+}
+.work-card:hover .work-shot img{scale:1.035}
+
+.work-meta{padding:22px 22px 6px}
+.work-kicker{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.work-title{
+  font-family:"Schibsted Grotesk","Instrument Sans",sans-serif;
+  font-weight:700;
+  font-size:var(--step-1);
+  letter-spacing:-.02em;
+  line-height:1.2;
+  margin:9px 0 0;
+}
+.work-blurb{
+  margin:9px 0 0;
+  font-size:.92rem;
+  line-height:1.55;
+  color:var(--muted);
+  text-wrap:pretty;
+}
+.work-go{
+  padding:16px 22px 22px;
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.7rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--muted);
+  transition:color .25s ease;
+}
+.work-go::after{content:" \2192"}
+.work-card:hover .work-go{color:var(--accent)}
+
+.work-all{
+  margin-top:clamp(26px,3.5vw,40px);
+  display:flex;
+  justify-content:flex-start;
+}
+
+/* ---------------- footer ---------------- */
+
+footer{
+  border-top:1px solid var(--hairline);
+  padding-block:38px 46px;
+}
+.foot{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.74rem;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+.foot nav{display:flex; gap:22px; flex-wrap:wrap}
+.foot a{
+  text-decoration:none;
+  transition:color .2s ease;
+}
+.foot a:hover{color:var(--accent)}
+
+/* ---------------- entrance ---------------- */
+
+.rise{
+  opacity:0;
+  translate:0 14px;
+  animation:rise .95s cubic-bezier(.16,.8,.24,1) forwards;
+}
+.rise-1{animation-delay:.06s}
+.rise-2{animation-delay:.20s}
+.rise-3{animation-delay:.34s}
+.rise-4{animation-delay:.52s}
+
+@keyframes rise{to{opacity:1; translate:0 0}}
+
+.reveal{
+  opacity:0;
+  translate:0 18px;
+  transition:opacity .8s cubic-bezier(.16,.8,.24,1), translate .8s cubic-bezier(.16,.8,.24,1);
+}
+.reveal.seen{opacity:1; translate:0 0}
+.reveal:nth-child(2){transition-delay:.09s}
+.reveal:nth-child(3){transition-delay:.18s}
+
+/* ---------------- scroll ----------------
+   Native scroll-driven animations. No library, no scroll listener:
+   the browser drives these off the scroll position itself, so the
+   motion tracks the finger instead of firing on a trigger.
+
+   One gesture, three parts -- the hero recedes as it leaves while the
+   covers drift inside their frames as they arrive. Browsers without
+   animation-timeline simply get the static page; nothing is lost.
+   ---------------------------------------------------------------- */
+
+.progress{
+  position:fixed;
+  inset:0 0 auto 0;
+  height:2px;
+  z-index:50;
+  background:var(--accent);
+  transform-origin:0 50%;
+  scale:0 1;
+}
+
+@supports (animation-timeline:scroll()){
+  .progress{
+    animation:progress linear both;
+    animation-timeline:scroll(root block);
+  }
+  @keyframes progress{
+    from{scale:0 1}
+    to{scale:1 1}
+  }
+
+  /* the hero gives way rather than being scrolled past */
+  .hero-inner{
+    animation:hero-recede linear both;
+    animation-timeline:scroll(root block);
+    animation-range:0 88vh;
+  }
+  @keyframes hero-recede{
+    to{opacity:0; scale:.955; translate:0 -3.5vh; filter:blur(2px)}
+  }
+
+  #field{
+    animation:field-dim linear both;
+    animation-timeline:scroll(root block);
+    animation-range:0 78vh;
+  }
+  @keyframes field-dim{
+    to{opacity:0}
+  }
+
+  .hero-cue{
+    animation:cue-out linear both;
+    animation-timeline:scroll(root block);
+    animation-range:0 26vh;
+  }
+  @keyframes cue-out{
+    to{opacity:0; translate:-50% 14px}
+  }
+}
+
+@supports (animation-timeline:view()){
+  /* the cover drifts through the 7% overhang as the card crosses the
+     viewport -- depth without the image ever leaving its frame */
+  .work-shot img{
+    animation:shot-drift linear both;
+    animation-timeline:view();
+    animation-range:cover 0% cover 100%;
+  }
+  @keyframes shot-drift{
+    from{translate:0 -3.2%}
+    to{translate:0 3.2%}
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .rise,.reveal{opacity:1; translate:none}
+  .hero-inner,.hero-cue,#field,.work-shot img{
+    animation:none !important;
+    opacity:1;
+    scale:none;
+    filter:none;
+  }
+  .hero-cue{translate:-50% 0}
+  .progress{display:none}
+}

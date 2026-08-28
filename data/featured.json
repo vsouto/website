@@ -1,0 +1,20 @@
+{
+  "_comment": "Projetos em destaque na home. 'match' casa com o nome do projeto no Behance; 'kicker' e 'blurb' sao editaveis a mao e o sync preserva.",
+  "featured": [
+    {
+      "match": "Philips Tasy",
+      "kicker": "Healthcare",
+      "blurb": "Interface work for the hospital management platform used across Latin America."
+    },
+    {
+      "match": "Siemens UI Libraries",
+      "kicker": "Design systems",
+      "blurb": "Component libraries built to keep a large industrial product suite coherent."
+    },
+    {
+      "match": "Editora - AI in real estate",
+      "kicker": "AI product",
+      "blurb": "Applying generative models to listing and valuation workflows in real estate."
+    }
+  ]
+}
