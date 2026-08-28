@@ -3,3 +3,9 @@ Thumbs.db
 *.log
 .venv/
 node_modules/
+
+# segredos: nunca versionar
+.env
+.env.*
+!.env.example
+.wrangler/

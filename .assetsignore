@@ -8,3 +8,11 @@ scripts
 data
 README.md
 preview.html
+
+# segredos: nunca subir para o CDN
+.env
+.env.*
+
+# o proprio wrangler cria isto a cada deploy: cache, tmp e o
+# wrangler-account.json, que carrega id e e-mail da conta
+.wrangler
