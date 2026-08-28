@@ -1,5 +1,5 @@
 {
-  "_comment": "Projetos em destaque na home. 'match' casa com o nome do projeto no Behance; 'kicker' e 'blurb' sao editaveis a mao e o sync preserva.",
+  "_comment": "Cards da home. Cada entrada e (a) um projeto do Behance via 'match', ou (b) um projeto proprio via 'image_url'. 'kicker' e 'blurb' sao escritos a mao e o sync preserva. 'link' e 'title' sobrescrevem o que vem do Behance.",
   "featured": [
     {
       "match": "Philips Tasy",
@@ -13,8 +13,20 @@
     },
     {
       "match": "Editora - AI in real estate",
-      "kicker": "AI product",
-      "blurb": "Applying generative models to listing and valuation workflows in real estate."
+      "title": "Editora.ai",
+      "link": "https://editora.ai/",
+      "cta": "editora.ai",
+      "kicker": "AI video",
+      "blurb": "Turns real estate listing photos into finished videos — branding, voice-over, music and captions, generated end to end."
+    },
+    {
+      "title": "Kondomino",
+      "link": "https://kondomino.com.br/",
+      "cta": "kondomino.com.br",
+      "image_url": "https://kondomino.com.br/img/hero-identity.webp",
+      "image_anchor": "left",
+      "kicker": "Proptech",
+      "blurb": "A Brazilian condominium portal using AI to change how people search for and manage where they live. In development."
     }
   ]
 }

@@ -46,13 +46,41 @@ The script rewrites everything between `<!-- work:start -->` and
 
 ## Changing which projects are featured
 
-Edit `data/featured.json` and re-run the sync. `match` has to equal the project
-name on Behance exactly; `kicker` and `blurb` are yours to write and the sync
-preserves them.
+`data/featured.json` drives the cards. Two kinds of entry:
+
+**From Behance** — `match` has to equal the project name on Behance exactly.
+The cover comes from Behance already at the card's proportion.
 
 ```json
 { "match": "Philips Tasy", "kicker": "Healthcare", "blurb": "..." }
 ```
+
+**Your own project** — no Behance entry, so give it an image and a link.
+The image is downloaded and cropped to 808x632.
+
+```json
+{
+  "title": "Kondomino",
+  "link": "https://kondomino.com.br/",
+  "cta": "kondomino.com.br",
+  "image_url": "https://kondomino.com.br/img/hero-identity.webp",
+  "image_anchor": "left",
+  "kicker": "Proptech",
+  "blurb": "..."
+}
+```
+
+`image_anchor` is `center` (default), `left`, `right`, `top` or `bottom`. Use it
+when the source image has text against one edge — Kondomino's headline sits on
+the left, and a centred crop cuts it in half.
+
+`title`, `link` and `cta` also work on a Behance entry, to override what the
+gallery says. That is how Editora.ai points at its own site instead of Behance
+while still using the Behance cover.
+
+Cropping needs Pillow (`sudo apt install python3-pil`). Without it, entries that
+have `image_url` keep whatever cover is already in `assets/work/`, and the
+script says so rather than failing.
 
 If a `match` no longer exists on the profile the script aborts and lists the
 names it did find.

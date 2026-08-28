@@ -7,6 +7,10 @@ e o JSON de estado que o Behance embute na propria pagina do perfil, dentro de
 <script id="beconfig-store_state">. Isso e scraping: se o Behance mudar a
 estrutura, este script falha alto em vez de gravar dados vazios.
 
+Cards que nao vem do Behance (projetos proprios) tem 'image_url' em vez de
+'match': a imagem e baixada e recortada para a proporcao do card. Esse recorte
+precisa de Pillow; sem ele o script mantem a capa que ja esta no repo e avisa.
+
 Roda em build time. O site servido e 100% estatico -- o navegador do visitante
 nunca fala com o Behance (bateria em CORS de qualquer forma).
 
@@ -34,6 +38,8 @@ WORK = ROOT / "assets" / "work"
 INDEX = ROOT / "index.html"
 
 COVER_PREF = ["max_808_webp", "808_webp", "original_webp", "max_808", "808"]
+
+CARD_W, CARD_H = 808, 632
 
 
 def get(url, binary=False):
@@ -95,11 +101,41 @@ def slugify(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
 
+def fit_cover(raw, dest, anchor):
+    """Recorta para a proporcao do card e grava webp. Anchor evita decapitar
+    texto que esteja encostado numa das bordas."""
+    try:
+        from PIL import Image
+    except ImportError:
+        if dest.exists():
+            print(f"  ! Pillow ausente: mantendo {dest.name} como esta.")
+            return False
+        sys.exit(
+            f"ERRO: {dest.name} precisa ser recortada e o Pillow nao esta instalado.\n"
+            "  pip install Pillow   (ou: sudo apt install python3-pil)"
+        )
+    import io
+
+    im = Image.open(io.BytesIO(raw)).convert("RGB")
+    w, h = im.size
+    target = CARD_W / CARD_H
+    if w / h > target:                       # sobra largura: corta na horizontal
+        cw = int(round(h * target))
+        left = {"left": 0, "right": w - cw}.get(anchor, (w - cw) // 2)
+        im = im.crop((left, 0, left + cw, h))
+    else:                                    # sobra altura: corta na vertical
+        ch = int(round(w / target))
+        top = {"top": 0, "bottom": h - ch}.get(anchor, (h - ch) // 2)
+        im = im.crop((0, top, w, top + ch))
+    im.resize((CARD_W, CARD_H), Image.LANCZOS).save(dest, "WEBP", quality=86, method=6)
+    return True
+
+
 def render_cards(cards):
     rows = []
     for c in cards:
         rows.append(
-            f"""        <a class="work-card" href="{c['url']}" target="_blank" rel="noopener noreferrer">
+            f"""        <a class="work-card" href="{c['link']}" target="_blank" rel="noopener noreferrer">
           <div class="work-shot">
             <img src="{c['image']}" alt="Cover of the {c['name']} project" width="808" height="632" loading="lazy" decoding="async">
           </div>
@@ -108,7 +144,7 @@ def render_cards(cards):
             <h3 class="work-title">{c['name']}</h3>
             <p class="work-blurb">{c['blurb']}</p>
           </div>
-          <span class="work-go" aria-hidden="true">View on Behance</span>
+          <span class="work-go" aria-hidden="true">{c['cta']}</span>
         </a>"""
         )
     return "\n".join(rows)
@@ -125,27 +161,54 @@ def main():
 
     cards = []
     for f in featured_cfg["featured"]:
-        p = by_name.get(f["match"])
-        if not p:
-            sys.exit(
-                f"ERRO: projeto em destaque '{f['match']}' nao esta mais no perfil.\n"
-                f"Disponiveis: {', '.join(sorted(by_name))}"
-            )
-        url, size = pick_cover(p["covers"])
-        if not url:
-            sys.exit(f"ERRO: projeto '{p['name']}' sem capa disponivel.")
-        fname = f"{slugify(p['name'])}.webp"
-        dest = WORK / fname
-        if check:
-            print(f"  [check] {p['name']}: capa {size} -> assets/work/{fname}")
+        from_behance = "match" in f
+
+        if from_behance:
+            p = by_name.get(f["match"])
+            if not p:
+                sys.exit(
+                    f"ERRO: projeto em destaque '{f['match']}' nao esta mais no perfil.\n"
+                    f"Disponiveis: {', '.join(sorted(by_name))}"
+                )
+            name = f.get("title") or p["name"]
+            link = f.get("link") or p["url"]
+            cta = f.get("cta") or "View on Behance"
+            src, size = pick_cover(p["covers"])
+            if not src:
+                sys.exit(f"ERRO: projeto '{p['name']}' sem capa disponivel no Behance.")
         else:
-            data = get(url, binary=True)
-            dest.write_bytes(data)
-            print(f"  {p['name']}: capa {size}, {len(data)//1024} KB -> assets/work/{fname}")
+            if not f.get("title") or not f.get("link") or not f.get("image_url"):
+                sys.exit(
+                    "ERRO: entrada sem 'match' precisa de 'title', 'link' e 'image_url'. "
+                    f"Problema em: {f}"
+                )
+            name, link = f["title"], f["link"]
+            cta = f.get("cta") or "Visit site"
+            src, size = f["image_url"], "origem"
+
+        fname = slugify(name) + ".webp"
+        dest = WORK / fname
+
+        if check:
+            print(f"  [check] {name}: capa {size} -> assets/work/{fname}")
+        else:
+            raw = get(src, binary=True)
+            if from_behance:
+                # o Behance ja entrega na proporcao do card
+                dest.write_bytes(raw)
+                print(f"  {name}: capa {size}, {len(raw)//1024} KB -> assets/work/{fname}")
+            elif fit_cover(raw, dest, f.get("image_anchor", "center")):
+                print(
+                    f"  {name}: recortada de {len(raw)//1024} KB "
+                    f"(anchor={f.get('image_anchor','center')}) -> "
+                    f"assets/work/{fname} ({dest.stat().st_size//1024} KB)"
+                )
+
         cards.append(
             {
-                "name": p["name"],
-                "url": p["url"],
+                "name": name,
+                "link": link,
+                "cta": cta,
                 "image": f"assets/work/{fname}",
                 "kicker": f["kicker"],
                 "blurb": f["blurb"],
