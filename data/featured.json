@@ -27,6 +27,28 @@
       "image_anchor": "left",
       "kicker": "Proptech",
       "blurb": "A Brazilian condominium portal using AI to change how people search for and manage where they live. In development."
+    },
+    {
+      "match": "Questrade Financial Solutions",
+      "kicker": "Fintech",
+      "blurb": "Product interfaces for Questrade, the Canadian online brokerage and wealth platform."
+    },
+    {
+      "match": "ABInBev Systems",
+      "kicker": "Enterprise",
+      "blurb": "Internal systems for AB InBev, the world's largest brewer."
+    },
+    {
+      "match": "Radio Holland's Management System",
+      "title": "Radio Holland",
+      "kicker": "Maritime",
+      "blurb": "A management system for Radio Holland, the maritime communications and navigation company."
+    },
+    {
+      "match": "Petronas F1 Interlagos Racing Game",
+      "title": "Petronas F1 Racing Game",
+      "kicker": "Games",
+      "blurb": "A racing game built for Petronas around the Formula 1 Grand Prix at Interlagos."
     }
   ]
 }

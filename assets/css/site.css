@@ -319,7 +319,7 @@ section{padding-block:clamp(72px,11vh,132px)}
 
 /* ---------------- work ---------------- */
 
-/* quatro cards: 2x2 deliberado. auto-fit daria 3+1, que fica manco. */
+/* oito cards: 1 coluna no celular, 2 no tablet, 3 no desktop. */
 .work-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -327,6 +327,9 @@ section{padding-block:clamp(72px,11vh,132px)}
 }
 @media (min-width:640px){
   .work-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:980px){
+  .work-grid{grid-template-columns:repeat(3,1fr)}
 }
 
 .work-card{
