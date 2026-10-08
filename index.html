@@ -283,7 +283,55 @@
     </div>
   </section>
 
+  <section id="contact" class="shell pitch" lang="pt-BR" aria-labelledby="pitch-title">
+    <div class="pitch-in reveal">
+      <h2 id="pitch-title" class="pitch-lines">
+        <span>Tem uma idéia inovadora?</span>
+        <span>Eu entro com o esquisito know-how técnico.</span>
+      </h2>
+      <button class="pitch-btn" type="button" data-open-contact aria-haspopup="dialog">
+        Conte-me mais
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+
 </main>
+
+<dialog id="contact-dialog" class="sheet" lang="pt-BR" aria-labelledby="sheet-title">
+  <form class="sheet-form" novalidate>
+    <header class="sheet-head">
+      <p class="eyebrow">Contato</p>
+      <button class="sheet-x" type="button" data-close aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+    <h2 id="sheet-title" class="sheet-title">Do que se trata?</h2>
+    <p class="sheet-sub">Algumas linhas bastam. Eu leio tudo e respondo por e-mail.</p>
+
+    <label class="fld"><span>Nome</span>
+      <input name="name" autocomplete="name" maxlength="120" required>
+    </label>
+    <label class="fld"><span>E-mail</span>
+      <input name="email" type="email" autocomplete="email" maxlength="200" required>
+    </label>
+    <label class="fld"><span>A idéia, em poucas linhas</span>
+      <textarea name="problem" rows="5" maxlength="4000" required></textarea>
+    </label>
+    <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+
+    <div class="sheet-foot">
+      <p class="sheet-status" role="status" aria-live="polite"></p>
+      <button class="btn btn-solid sheet-send" type="submit">Enviar</button>
+    </div>
+  </form>
+  <div class="sheet-done" hidden>
+    <p class="eyebrow">Recebido</p>
+    <h2 class="sheet-title">Obrigado. Agora é comigo.</h2>
+    <p class="sheet-sub">Respondo no e-mail que você deixou, em geral em um ou dois dias.</p>
+    <button class="btn btn-ghost" type="button" data-close>Fechar</button>
+  </div>
+</dialog>
 
 <footer>
   <div class="shell foot">
@@ -297,5 +345,6 @@
 </footer>
 
 <script src="assets/js/field.js" defer></script>
+<script src="assets/js/contact.js" defer></script>
 </body>
 </html>

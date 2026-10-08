@@ -408,6 +408,193 @@ section{padding-block:clamp(72px,11vh,132px)}
   justify-content:flex-start;
 }
 
+/* ---------------- pitch ----------------
+   The quiet close: two lines and a way in. No card, no section number --
+   it should read as an aside, not as another section.
+   ---------------------------------------- */
+
+.pitch{padding-block:0 clamp(64px,10vh,120px)}
+.pitch-in{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:28px 40px;
+  flex-wrap:wrap;
+  padding-top:clamp(36px,5vw,56px);
+  border-top:1px solid var(--hairline);
+}
+.pitch-lines{
+  margin:0;
+  font-family:"Schibsted Grotesk","Instrument Sans",sans-serif;
+  font-weight:600;
+  font-size:clamp(1.6rem,1.1rem + 2.1vw,2.7rem);
+  line-height:1.12;
+  letter-spacing:-.03em;
+}
+.pitch-lines span{display:block}
+.pitch-lines span:first-child{color:var(--muted)}
+.pitch-lines span:last-child{color:var(--ink)}
+
+.pitch-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  min-height:44px;
+  padding:0 2px;
+  border:0;
+  background:none;
+  cursor:pointer;
+  color:var(--ink-2);
+  font:500 .74rem/1 "JetBrains Mono",ui-monospace,monospace;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  position:relative;
+  transition:color .3s ease;
+}
+/* hairline that fills with the accent from the left on hover */
+.pitch-btn::after{
+  content:"";
+  position:absolute;
+  left:2px; right:2px; bottom:8px;
+  height:1px;
+  background:linear-gradient(90deg,var(--accent) 50%,var(--hairline) 50%) 100% 0/200% 100% no-repeat;
+  transition:background-position .55s cubic-bezier(.2,.7,.2,1);
+}
+.pitch-btn svg{width:15px; height:15px; transition:translate .45s cubic-bezier(.2,.7,.2,1)}
+.pitch-btn:hover{color:var(--accent)}
+.pitch-btn:hover::after{background-position:0 0}
+.pitch-btn:hover svg{translate:4px 0}
+
+/* ---------------- contact sheet ---------------- */
+
+.sheet{
+  width:min(540px,calc(100% - 32px));
+  max-height:calc(100dvh - 32px);
+  margin:auto;
+  padding:0;
+  border:1px solid var(--hairline);
+  border-radius:20px;
+  background:var(--paper-2);
+  color:var(--ink);
+  box-shadow:var(--lift-2), 0 60px 120px -40px rgba(0,0,0,.35);
+  overflow:auto;
+}
+.sheet::backdrop{
+  background:color-mix(in srgb,var(--paper) 62%,transparent);
+  backdrop-filter:blur(10px) saturate(.9);
+  -webkit-backdrop-filter:blur(10px) saturate(.9);
+}
+.sheet[open]{animation:sheet-in .5s cubic-bezier(.16,.8,.24,1)}
+.sheet[open]::backdrop{animation:fade-in .4s ease}
+.sheet.closing{animation:sheet-out .22s ease forwards}
+.sheet.closing::backdrop{animation:fade-out .22s ease forwards}
+@keyframes sheet-in{from{opacity:0; translate:0 16px; scale:.985}}
+@keyframes sheet-out{to{opacity:0; translate:0 8px; scale:.99}}
+@keyframes fade-in{from{opacity:0}}
+@keyframes fade-out{to{opacity:0}}
+html.sheet-open{overflow:hidden}
+
+.sheet-form,.sheet-done{
+  display:grid;
+  gap:18px;
+  padding:clamp(24px,5vw,40px);
+}
+.sheet-done{justify-items:start; gap:14px}
+/* display:grid above would beat the hidden attribute */
+.sheet [hidden]{display:none}
+.sheet-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:-6px;
+}
+.sheet-head .eyebrow{margin:0}
+.sheet-x{
+  display:grid;
+  place-items:center;
+  width:44px; height:44px;
+  margin:-10px -12px -10px 0;
+  border:0;
+  border-radius:50%;
+  background:none;
+  color:var(--muted);
+  cursor:pointer;
+  transition:color .2s ease, background .2s ease;
+}
+.sheet-x svg{width:18px; height:18px}
+.sheet-x:hover{color:var(--ink); background:var(--hairline-2)}
+.sheet-title{
+  margin:0;
+  font-family:"Schibsted Grotesk","Instrument Sans",sans-serif;
+  font-weight:700;
+  font-size:var(--step-2);
+  letter-spacing:-.028em;
+  line-height:1.1;
+}
+.sheet-sub{margin:-8px 0 4px; color:var(--muted); font-size:.95rem; text-wrap:pretty}
+.sheet-done .sheet-sub{margin:0 0 8px}
+
+.fld{display:grid; gap:7px}
+.fld span{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.68rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  transition:color .2s ease;
+}
+.fld input,.fld textarea{
+  width:100%;
+  font:inherit;
+  font-size:1rem;
+  color:var(--ink);
+  background:var(--paper);
+  border:1px solid var(--hairline);
+  border-radius:12px;
+  padding:12px 14px;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.fld textarea{resize:vertical; min-height:120px; line-height:1.5}
+.fld input:focus,.fld textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 16%,transparent);
+}
+.fld:focus-within span{color:var(--accent)}
+.fld.invalid input,.fld.invalid textarea{border-color:var(--accent)}
+.fld.invalid span{color:var(--accent)}
+
+/* honeypot: present for bots, gone for people and screen readers */
+.hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+
+.sheet-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  padding-top:4px;
+}
+.sheet-status{margin:0; font-size:.88rem; color:var(--muted); flex:1 1 180px}
+.sheet .btn{border:1px solid transparent; cursor:pointer; font-family:inherit; min-height:44px}
+.sheet .btn-ghost{border-color:var(--hairline)}
+.sheet-send{padding-inline:26px}
+.sheet-send:disabled{opacity:.55; cursor:progress}
+
+/* phones: the sheet rises from the bottom edge */
+@media (max-width:560px){
+  .sheet{
+    width:100%;
+    max-width:none;
+    margin:auto 0 0;
+    border-radius:20px 20px 0 0;
+    border-bottom:0;
+    max-height:92dvh;
+  }
+  @keyframes sheet-in{from{translate:0 100%}}
+  @keyframes sheet-out{to{translate:0 100%}}
+}
+
 /* ---------------- footer ---------------- */
 
 footer{
@@ -544,4 +731,5 @@ footer{
   }
   .hero-cue{translate:-50% 0}
   .progress{display:none}
+  .sheet,.sheet::backdrop{animation:none !important}
 }

@@ -5,6 +5,7 @@
 .github
 wrangler.jsonc
 scripts
+src
 data
 README.md
 preview.html
@@ -16,3 +17,4 @@ preview.html
 # o proprio wrangler cria isto a cada deploy: cache, tmp e o
 # wrangler-account.json, que carrega id e e-mail da conta
 .wrangler
+.dev.vars

@@ -1,12 +1,19 @@
 {
-  // Cloudflare Workers com static assets. O site nao tem codigo de servidor:
-  // sem "main", o Worker so serve os arquivos de "assets".
+  // Cloudflare Workers com static assets. Quase tudo e arquivo estatico; o
+  // unico codigo de servidor e o formulario de contato (src/worker.js), que
+  // envia e-mail pelo Email Routing. O destino fica no secret MAIL_TO.
   "name": "vsouto-website",
+  "main": "src/worker.js",
   "compatibility_date": "2026-08-28",
   "assets": {
     "directory": "./",
-    "not_found_handling": "none"
+    "binding": "ASSETS",
+    "not_found_handling": "none",
+    "run_worker_first": ["/api/*"]
   },
+  "send_email": [
+    { "name": "MAIL" }
+  ],
   "observability": {
     "enabled": true
   }

@@ -1,0 +1,80 @@
+// vsouto.com -- the static site plus one route: the contact form.
+// Everything except POST /api/contact falls through to the static assets.
+// The message goes out through Cloudflare Email Routing (send_email binding),
+// so there is no third-party form service and no API key to leak. The
+// destination lives in the MAIL_TO secret, never in this public repo.
+import { EmailMessage } from "cloudflare:email";
+
+const FROM = "site@vsouto.com";
+const LIMITS = { name: 120, email: 200, problem: 4000 };
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    if (url.pathname !== "/api/contact") return env.ASSETS.fetch(request);
+    if (request.method !== "POST") return json(405, { ok: false });
+
+    let body;
+    try { body = await request.json(); } catch { return json(400, { ok: false, error: "bad_request" }); }
+
+    // honeypot: a field no human sees. Bots fill it; answer as if it worked.
+    if (body.website) return json(200, { ok: true });
+
+    const name = clean(body.name, LIMITS.name);
+    const email = clean(body.email, LIMITS.email);
+    const problem = String(body.problem || "").trim().slice(0, LIMITS.problem);
+    if (!name || !problem || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return json(422, { ok: false, error: "invalid" });
+    }
+
+    const text = [
+      `Nome: ${name}`,
+      `E-mail: ${email}`,
+      "",
+      problem,
+      "",
+      "--",
+      `vsouto.com · ${new Date().toISOString()} · ${request.headers.get("cf-ipcountry") || "?"}`,
+    ].join("\n");
+
+    const raw = [
+      `From: vsouto.com <${FROM}>`,
+      `To: ${env.MAIL_TO}`,
+      `Reply-To: ${email}`,
+      `Subject: ${encodeWord(`Contato pelo site, de ${name}`)}`,
+      `Message-ID: <${crypto.randomUUID()}@vsouto.com>`,
+      `Date: ${new Date().toUTCString()}`,
+      "MIME-Version: 1.0",
+      "Content-Type: text/plain; charset=utf-8",
+      "Content-Transfer-Encoding: base64",
+      "",
+      wrap(b64(text)),
+    ].join("\r\n");
+
+    try {
+      await env.MAIL.send(new EmailMessage(FROM, env.MAIL_TO, raw));
+    } catch (err) {
+      console.error("contact: send failed", err && err.message);
+      return json(502, { ok: false, error: "send_failed" });
+    }
+    return json(200, { ok: true });
+  },
+};
+
+// single line, no control chars: these values end up in mail headers
+function clean(v, max) {
+  return String(v || "").replace(/[\u0000-\u001f\u007f]+/g, " ").trim().slice(0, max);
+}
+function b64(s) {
+  let bin = "";
+  for (const byte of new TextEncoder().encode(s)) bin += String.fromCharCode(byte);
+  return btoa(bin);
+}
+function encodeWord(s) { return `=?UTF-8?B?${b64(s)}?=`; }
+function wrap(s) { return s.replace(/.{1,76}/g, "$&\r\n").trimEnd(); }
+function json(status, data) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
+  });
+}
