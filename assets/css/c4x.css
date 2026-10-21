@@ -1,0 +1,316 @@
+/* ============================================================
+   vsouto.com/skills/c4x
+   Product page for the c4x skill. Builds on site.css tokens;
+   the accent stays Braun orange and is used for the x only.
+   ============================================================ */
+
+.c4x section{padding-block:clamp(56px,9vh,104px)}
+
+/* ---------------- top bar ---------------- */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter:saturate(1.4) blur(12px);
+  -webkit-backdrop-filter:saturate(1.4) blur(12px);
+  border-bottom:1px solid var(--hairline);
+}
+.topbar-in{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  min-height:56px;
+}
+.topbar a{text-decoration:none}
+.home{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.8rem;
+  letter-spacing:.08em;
+  color:var(--muted);
+}
+.home::before{content:"\2190  "}
+.home:hover{color:var(--ink)}
+.topbar nav{display:flex; align-items:center; gap:clamp(12px,2.4vw,26px); font-size:.92rem}
+.topbar nav a{color:var(--ink-2)}
+.topbar nav a:hover{color:var(--accent)}
+.topbar .gh{display:inline-flex; align-items:center; gap:7px}
+.topbar .gh svg{width:16px; height:16px}
+@media (max-width:560px){
+  .topbar nav a:not(.gh){display:none}
+}
+
+/* ---------------- hero ---------------- */
+
+.x-hero{padding-block:clamp(64px,12vh,128px) clamp(32px,5vh,56px)}
+.x-hero .eyebrow{margin:0 0 18px}
+.x-name{
+  margin:0;
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  font-weight:700;
+  font-size:clamp(4.6rem,3rem + 9vw,9.5rem);
+  line-height:.9;
+  letter-spacing:-.05em;
+}
+.x-name span{color:var(--accent)}
+.x-lede{
+  margin:26px 0 34px;
+  max-width:60ch;
+  font-size:var(--step-1);
+  line-height:1.5;
+  color:var(--ink-2);
+  text-wrap:pretty;
+}
+.x-lede a{color:var(--ink); text-decoration-color:var(--hairline); text-underline-offset:3px}
+.x-lede a:hover{text-decoration-color:var(--accent)}
+
+/* install commands */
+.x-install{display:grid; gap:8px; max-width:640px; margin-bottom:28px}
+.cmd{
+  display:grid;
+  grid-template-columns:104px minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  padding:8px 8px 8px 16px;
+  background:var(--paper-2);
+  border:1px solid var(--hairline);
+  border-radius:12px;
+}
+.cmd-label{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.7rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.cmd code{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.92rem;
+  color:var(--ink);
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
+}
+.cmd-copy{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font:500 .82rem "Instrument Sans",system-ui,sans-serif;
+  color:var(--ink-2);
+  background:transparent;
+  border:1px solid var(--hairline);
+  border-radius:8px;
+  padding:7px 10px;
+  min-height:36px;
+  cursor:pointer;
+  transition:color .2s ease, border-color .2s ease;
+}
+.cmd-copy svg{width:14px; height:14px}
+.cmd-copy:hover{color:var(--accent); border-color:var(--accent)}
+.cmd-copy.done{color:var(--accent); border-color:var(--accent)}
+@media (max-width:560px){
+  .cmd{grid-template-columns:minmax(0,1fr) auto; row-gap:4px}
+  .cmd-label{grid-column:1 / -1}
+  .cmd-copy span{display:none}
+}
+
+/* ---------------- screenshots ---------------- */
+
+.x-shot{margin:0}
+.x-shot.shell{margin-inline:auto}
+.x-shot picture{
+  display:block;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid var(--hairline);
+  box-shadow:var(--lift-2);
+  background:var(--paper-2);
+}
+.x-shot img{display:block; width:100%; height:auto}
+.x-shot figcaption{
+  margin-top:14px;
+  font-size:.88rem;
+  color:var(--muted);
+  max-width:70ch;
+}
+.x-shot-hero{padding-bottom:clamp(24px,4vh,40px)}
+.x-shot-tall picture{max-height:760px}
+.x-shot-tall img{object-fit:cover; object-position:top}
+.x-shot-code picture{border-color:#1F2123; background:#0A0B0C}
+
+/* ---------------- facts ---------------- */
+
+.x-facts{padding-block:clamp(24px,4vh,40px)}
+.x-facts dl{
+  margin:0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:0;
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+}
+.x-facts dl > div{padding:20px 20px 20px 0; min-width:0}
+.x-facts dl > div + div{padding-left:20px; border-left:1px solid var(--hairline)}
+.x-facts dt{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.7rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.x-facts dd{margin:0; font-size:.98rem; color:var(--ink)}
+@media (max-width:700px){
+  .x-facts dl > div + div{padding-left:0; border-left:0; border-top:1px solid var(--hairline)}
+}
+
+/* ---------------- sections ---------------- */
+
+.c4x .section-head h2{
+  margin:0;
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  font-weight:700;
+  font-size:var(--step-3);
+  letter-spacing:-.03em;
+  line-height:1.05;
+  text-wrap:balance;
+}
+.c4x .section-head .eyebrow{margin:0}
+.x-intro{margin:0 0 28px; max-width:66ch; color:var(--ink-2); text-wrap:pretty}
+.x-cols{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(28px,5vw,64px);
+  align-items:center;
+}
+.x-cols-top{align-items:start}
+.x-copy{min-width:0}
+.x-copy p{margin:0 0 16px; color:var(--ink-2); text-wrap:pretty}
+.x-note{font-size:.86rem; color:var(--muted) !important}
+@media (max-width:900px){
+  .x-cols{grid-template-columns:minmax(0,1fr)}
+}
+
+.c4x code{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.86em;
+  padding:.1em .35em;
+  border-radius:5px;
+  background:var(--hairline-2);
+  color:var(--ink);
+}
+.cmd code{padding:0; background:none}
+
+.x-list{margin:0; padding:0; list-style:none; display:grid; gap:12px}
+.x-list li{
+  position:relative;
+  padding-left:22px;
+  color:var(--ink-2);
+}
+.x-list li::before{
+  content:"";
+  position:absolute;
+  left:0; top:.7em;
+  width:10px; height:1px;
+  background:var(--accent);
+}
+
+/* tabs */
+.x-tabs{
+  display:inline-flex;
+  gap:2px;
+  padding:3px;
+  margin-bottom:18px;
+  border:1px solid var(--hairline);
+  border-radius:999px;
+  background:var(--paper-2);
+}
+.x-tabs button{
+  font:500 .9rem "Instrument Sans",system-ui,sans-serif;
+  color:var(--muted);
+  background:none;
+  border:0;
+  border-radius:999px;
+  padding:8px 16px;
+  min-height:38px;
+  cursor:pointer;
+  transition:color .2s ease, background .2s ease;
+}
+.x-tabs button:hover{color:var(--ink)}
+.x-tabs button[aria-selected="true"]{background:var(--ink); color:var(--paper)}
+
+/* steps */
+.x-steps{
+  margin:0;
+  padding:0;
+  list-style:none;
+  counter-reset:step;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:clamp(16px,2vw,24px);
+}
+.x-steps li{
+  counter-increment:step;
+  padding-top:18px;
+  border-top:1px solid var(--ink);
+  min-width:0;
+}
+.x-steps li::before{
+  content:counter(step, decimal-leading-zero);
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.74rem;
+  letter-spacing:.12em;
+  color:var(--accent);
+}
+.x-steps h3{
+  margin:10px 0 6px;
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  font-size:var(--step-1);
+  letter-spacing:-.01em;
+}
+.x-steps p{margin:0; font-size:.94rem; color:var(--ink-2)}
+
+/* comparison table */
+.x-table-wrap{overflow-x:auto; border:1px solid var(--hairline); border-radius:14px; background:var(--paper-2)}
+.x-table{width:100%; min-width:620px; border-collapse:collapse; font-size:.95rem}
+.x-table th,.x-table td{padding:14px 18px; text-align:left; vertical-align:top; border-bottom:1px solid var(--hairline-2)}
+.x-table tbody tr:last-child th,.x-table tbody tr:last-child td{border-bottom:0}
+.x-table thead th{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border-bottom:1px solid var(--hairline);
+}
+.x-table thead th:last-child{color:var(--accent)}
+.x-table tbody th{font-weight:600; color:var(--ink); width:22%}
+.x-table td{color:var(--ink-2)}
+.x-table td:last-child{color:var(--ink)}
+
+/* notes */
+.x-faq{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:clamp(20px,3vw,36px)}
+.x-faq h3{margin:0 0 6px; font-size:1rem; font-weight:600}
+.x-faq p{margin:0; font-size:.94rem; color:var(--ink-2); text-wrap:pretty}
+
+/* closing */
+.x-end{display:grid; gap:22px; justify-items:start; border-top:1px solid var(--hairline)}
+.x-end h2{
+  margin:0;
+  font-family:"Schibsted Grotesk",system-ui,sans-serif;
+  font-size:var(--step-3);
+  letter-spacing:-.03em;
+  line-height:1.05;
+  text-wrap:balance;
+}
+.x-end .cmd{width:100%; max-width:560px}
+
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--accent)}
+
+@media (prefers-reduced-motion: reduce){
+  .cmd-copy,.x-tabs button{transition:none}
+}

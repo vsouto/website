@@ -11,6 +11,10 @@ assets/work/*.webp      project covers, synced from Behance
 data/projects.json      full Behance project list (generated)
 data/featured.json      which projects appear on the home page (hand-edited)
 scripts/sync-behance.py refreshes the two above
+skills/c4x.html         landing page for the c4x skill (served at /skills/c4x)
+assets/css/c4x.css      its styles, on top of site.css
+assets/js/c4x.js        its copy buttons and tabs
+assets/skills/c4x/      its screenshots and social card
 ```
 
 ## Running it locally

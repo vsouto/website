@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>c4x — Planning-first C4 architecture skill for AI agents · Victor Vieira Souto</title>
+<meta name="description" content="c4x is an open-source agent skill for Claude Code, Cursor and Codex that turns a plain-text brief into a validated LikeC4 C4 model with teams, SLOs, risk, tickets, as-is/to-be diffs and latency budgets.">
+<meta name="author" content="Victor Vieira Souto">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vsouto.com/skills/c4x">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Victor Vieira Souto">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://vsouto.com/skills/c4x">
+<meta property="og:title" content="c4x — planning-first C4 for AI agents">
+<meta property="og:description" content="Teams, SLOs, risk, tickets and as-is → to-be diffs on validated LikeC4 models. Open-source agent skill.">
+<meta property="og:image" content="https://vsouto.com/assets/skills/c4x/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="c4x: planning-first C4. A C4 container diagram showing new, changed and removed parts of a recommendation platform.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="c4x — planning-first C4 for AI agents">
+<meta name="twitter:description" content="Teams, SLOs, risk, tickets and as-is → to-be diffs on validated LikeC4 models. Open-source agent skill.">
+<meta name="twitter:image" content="https://vsouto.com/assets/skills/c4x/og.png">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/c4x.css">
+<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/skills/c4x/tobe-light-960.webp 960w, /assets/skills/c4x/tobe-light-1600.webp 1600w" imagesizes="(min-width: 1120px) 1040px, calc(100vw - 40px)" media="(prefers-color-scheme: light)">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://vsouto.com/skills/c4x#app",
+      "name": "c4x",
+      "alternateName": "C4X",
+      "url": "https://vsouto.com/skills/c4x",
+      "description": "Planning-first C4 architecture skill for AI agents. Turns a plain-text brief into a validated LikeC4 or Structurizr model with teams, SLOs, risk, tickets, as-is/to-be phases and latency budgets.",
+      "applicationCategory": "DeveloperApplication",
+      "applicationSubCategory": "Agent skill",
+      "operatingSystem": "Any (Claude Code, Cursor, Codex, Gemini CLI and other Agent Skills runtimes)",
+      "softwareVersion": "0.1.0",
+      "datePublished": "2026-10-21",
+      "license": "https://opensource.org/licenses/MIT",
+      "codeRepository": "https://github.com/vsouto/c4x",
+      "downloadUrl": "https://github.com/vsouto/c4x/releases/tag/v0.1.0",
+      "image": "https://vsouto.com/assets/skills/c4x/og.png",
+      "screenshot": [
+        "https://vsouto.com/assets/skills/c4x/tobe-light.png",
+        "https://vsouto.com/assets/skills/c4x/flow-light.png",
+        "https://vsouto.com/assets/skills/c4x/brief.png"
+      ],
+      "keywords": "C4 model, LikeC4, Structurizr, software architecture, architecture as code, Claude Code skill, agent skills, SLO, risk-storming",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@id": "https://vsouto.com/#person"
+      },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/vsouto/c4x#code",
+      "name": "c4x",
+      "codeRepository": "https://github.com/vsouto/c4x",
+      "programmingLanguage": [
+        "LikeC4",
+        "Markdown"
+      ],
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@id": "https://vsouto.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vsouto.com/#person",
+      "name": "Victor Vieira Souto",
+      "url": "https://vsouto.com/",
+      "sameAs": [
+        "https://github.com/vsouto",
+        "https://www.linkedin.com/in/victorsouto/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Victor Vieira Souto",
+          "item": "https://vsouto.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "c4x",
+          "item": "https://vsouto.com/skills/c4x"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vsouto.com/skills/c4x#page",
+      "url": "https://vsouto.com/skills/c4x",
+      "name": "c4x — planning-first C4 architecture skill for AI agents",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://vsouto.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://vsouto.com/skills/c4x#app"
+      },
+      "primaryImageOfPage": "https://vsouto.com/assets/skills/c4x/og.png"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="c4x">
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="home" href="/">vsouto.com</a>
+    <nav aria-label="Page">
+      <a href="#brief">Brief</a>
+      <a href="#layers">Layers</a>
+      <a href="#install">Install</a>
+      <a class="gh" href="https://github.com/vsouto/c4x" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="x-hero shell" aria-labelledby="x-title">
+    <p class="eyebrow">Agent skill · Open source · v0.1.0</p>
+    <h1 id="x-title" class="x-name">c4<span>x</span></h1>
+    <p class="x-lede">Planning-first C4 for AI agents. Write a plain-text brief; get a validated <a href="https://likec4.dev" target="_blank" rel="noopener noreferrer">LikeC4</a> model that also knows who owns each box, its SLO, its risk, the tickets that touch it and what changes next quarter.</p>
+
+    <div class="x-install" id="install">
+      <div class="cmd"><span class="cmd-label">Claude Code</span><code id="cmd-cc">/plugin marketplace add vsouto/c4x</code><button type="button" class="cmd-copy" data-copy="cmd-cc" aria-label="Copy Claude Code command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>Copy</span></button></div>
+      <div class="cmd"><span class="cmd-label">then</span><code id="cmd-cc2">/plugin install c4x@vsouto</code><button type="button" class="cmd-copy" data-copy="cmd-cc2" aria-label="Copy then command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>Copy</span></button></div>
+      <div class="cmd"><span class="cmd-label">Any agent</span><code id="cmd-npx">npx skills add vsouto/c4x</code><button type="button" class="cmd-copy" data-copy="cmd-npx" aria-label="Copy Any agent command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>Copy</span></button></div>
+    </div>
+
+    <div class="link-row">
+      <a class="btn btn-solid" href="https://github.com/vsouto/c4x" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>View on GitHub</a>
+      <a class="btn btn-ghost" href="https://github.com/vsouto/c4x/blob/main/skills/c4x/references/spec.md" target="_blank" rel="noopener noreferrer">Read the spec <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <figure class="x-shot x-shot-hero shell">
+    <picture class=""><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="/assets/skills/c4x/tobe-dark-960.webp 960w, /assets/skills/c4x/tobe-dark-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><source type="image/webp" srcset="/assets/skills/c4x/tobe-light-960.webp 960w, /assets/skills/c4x/tobe-light-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/skills/c4x/tobe-light.png" width="1600" height="1266" alt="C4 container diagram of a recommendation platform in its Q1 2027 phase: a new Vector DB marked NEW, Candidate Retrieval marked CHANGED, and a removed batch relation struck through in red." loading="eager" fetchpriority="high" decoding="async"></picture>
+    <figcaption>Containers view of the bundled example, Q1 2027 phase: new, changed and removed parts shown as a diff.</figcaption>
+  </figure>
+
+  <section class="shell x-facts" aria-label="At a glance">
+    <dl>
+      <div><dt>Input</dt><dd>A Markdown brief, one item per line</dd></div>
+      <div><dt>Output</dt><dd>LikeC4 by default, Structurizr DSL on request</dd></div>
+      <div><dt>Checks</dt><dd>17 lint rules, then <code>likec4 validate</code></dd></div>
+      <div><dt>Runs in</dt><dd>Claude Code, Cursor, Codex, Gemini CLI and other Agent Skills runtimes</dd></div>
+    </dl>
+  </section>
+
+  <section id="brief" class="shell x-split" aria-labelledby="brief-title">
+    <div class="section-head"><h2 id="brief-title">The brief</h2><p class="eyebrow">01</p></div>
+    <div class="x-cols">
+      <div class="x-copy">
+        <p>A fixed format that reads well in a pull request. Each element, relation and flow step is one line with fields separated by <code>|</code>; attributes go underneath.</p>
+        <ul class="x-list">
+          <li>Unknowns are written as <code>?</code> and collected as open questions. The agent doesn&#8217;t fill them in.</li>
+          <li>Planned changes are a diff: <code>+</code> adds, <code>~</code> changes, <code>-</code> removes, per dated phase.</li>
+          <li>Section names and keys are English; names and descriptions can be in any language.</li>
+        </ul>
+      </div>
+      <figure class="x-shot x-shot-code">
+        <picture class=""><source type="image/webp" srcset="/assets/skills/c4x/brief-960.webp 960w, /assets/skills/c4x/brief-1600.webp 1600w" sizes="(min-width: 960px) 560px, calc(100vw - 40px)"><img src="/assets/skills/c4x/brief.png" width="1600" height="1157" alt="A c4x brief in an editor: an element with parent, team, SLO, risk and ticket; two relations marked async and sync with a latency budget; a flow with per-step milliseconds; and a Q1 2027 change set." loading="lazy" decoding="async"></picture>
+      </figure>
+    </div>
+  </section>
+
+  <section id="layers" class="shell" aria-labelledby="layers-title">
+    <div class="section-head"><h2 id="layers-title">Planning layers on plain C4</h2><p class="eyebrow">02</p></div>
+    <p class="x-intro">Every extension is a tag or <code>c4x_*</code> metadata on an ordinary C4 element, so the model stays valid C4 and a strict export drops them cleanly.</p>
+    <div class="x-tabs" role="tablist" aria-label="Layer">
+      <button type="button" role="tab" id="tab-tickets" aria-controls="layer-tickets" aria-selected="true">Tickets</button>
+      <button type="button" role="tab" id="tab-risk" aria-controls="layer-risk" aria-selected="false" tabindex="-1">Risk</button>
+      <button type="button" role="tab" id="tab-team" aria-controls="layer-team" aria-selected="false" tabindex="-1">Teams</button>
+    </div>
+    <figure class="x-shot" id="layer-tickets" role="tabpanel" aria-labelledby="tab-tickets">
+      <picture class=""><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="/assets/skills/c4x/tickets-dark-960.webp 960w, /assets/skills/c4x/tickets-dark-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><source type="image/webp" srcset="/assets/skills/c4x/tickets-light-960.webp 960w, /assets/skills/c4x/tickets-light-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/skills/c4x/tickets-light.png" width="1600" height="1266" alt="Container diagram with a ticket badge on each container, such as REC-214 In Progress and MLP-91 In Review, using Linear status names." loading="lazy" decoding="async"></picture>
+      <figcaption>Ticket IDs with their tracker status. With a Linear or Jira MCP connected the status is fetched live; it is never guessed.</figcaption>
+    </figure>
+    <figure class="x-shot" id="layer-risk" role="tabpanel" aria-labelledby="tab-risk" hidden>
+      <picture class=""><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="/assets/skills/c4x/risk-dark-960.webp 960w, /assets/skills/c4x/risk-dark-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><source type="image/webp" srcset="/assets/skills/c4x/risk-light-960.webp 960w, /assets/skills/c4x/risk-light-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/skills/c4x/risk-light.png" width="1600" height="1266" alt="Container diagram with a risk badge on each element: high for GPU in a single AZ, medium for an in-memory index, low elsewhere." loading="lazy" decoding="async"></picture>
+      <figcaption>Risk as low, medium or high with a reason, borrowed from Simon Brown&#8217;s risk-storming.</figcaption>
+    </figure>
+    <figure class="x-shot" id="layer-team" role="tabpanel" aria-labelledby="tab-team" hidden>
+      <picture class=""><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="/assets/skills/c4x/team-dark-960.webp 960w, /assets/skills/c4x/team-dark-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><source type="image/webp" srcset="/assets/skills/c4x/team-light-960.webp 960w, /assets/skills/c4x/team-light-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/skills/c4x/team-light.png" width="1600" height="1266" alt="Container diagram with an owning team badge on each element: Home Discovery, Ranking ML, Data Platform and ML Platform." loading="lazy" decoding="async"></picture>
+      <figcaption>Ownership per element, from the teams declared in the brief.</figcaption>
+    </figure>
+  </section>
+
+  <section class="shell" aria-labelledby="phases-title">
+    <div class="section-head"><h2 id="phases-title">As-is and to-be, from one model</h2><p class="eyebrow">03</p></div>
+    <div class="x-cols x-cols-top">
+      <div class="x-copy">
+        <p>The model keeps today&#8217;s architecture and marks each planned change with <code>phase_new</code>, <code>phase_changed</code> or <code>phase_removed</code>. Each phase gets its own view, filtered from the same source, so the current and future diagrams can&#8217;t drift apart.</p>
+        <p>This is what LikeC4 itself renders for the Q1 2027 view of the example: the new Vector DB in green, the changed retrieval service in amber, the removed batch job gone.</p>
+        <p class="x-note">Rendered by LikeC4 1.60.0 from the <code>recs.c4</code> file the skill produced.</p>
+      </div>
+      <figure class="x-shot x-shot-tall">
+        <picture class=""><source type="image/webp" srcset="/assets/skills/c4x/likec4-q1-dark-960.webp 960w, /assets/skills/c4x/likec4-q1-dark-1600.webp 1600w" sizes="(min-width: 960px) 520px, calc(100vw - 40px)"><img src="/assets/skills/c4x/likec4-q1-dark.png" width="1600" height="2116" alt="LikeC4 rendering of the Q1 2027 containers view: Vector DB in green, Candidate Retrieval in amber, the rest in blue inside the platform boundary." loading="lazy" decoding="async"></picture>
+      </figure>
+    </div>
+  </section>
+
+  <section class="shell" aria-labelledby="flows-title">
+    <div class="section-head"><h2 id="flows-title">Flows with a latency budget</h2><p class="eyebrow">04</p></div>
+    <p class="x-intro">Each flow becomes a C4 dynamic view. Steps carry their expected latency; the skill adds up the synchronous path and warns when it exceeds the flow&#8217;s budget or the entry service&#8217;s p99.</p>
+    <figure class="x-shot">
+      <picture class=""><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="/assets/skills/c4x/flow-dark-960.webp 960w, /assets/skills/c4x/flow-dark-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><source type="image/webp" srcset="/assets/skills/c4x/flow-light-960.webp 960w, /assets/skills/c4x/flow-light-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/skills/c4x/flow-light.png" width="1600" height="1283" alt="Dynamic view of the request that opens the home screen, with step 3 highlighted, above a list of seven steps whose synchronous path totals 65 of 80 milliseconds." loading="lazy" decoding="async"></picture>
+      <figcaption>Opening the home screen: 65 ms of an 80 ms budget on the critical path.</figcaption>
+    </figure>
+  </section>
+
+  <section class="shell" aria-labelledby="deploy-title">
+    <div class="section-head"><h2 id="deploy-title">Deployment</h2><p class="eyebrow">05</p></div>
+    <p class="x-intro">Nested deployment nodes, from region to cluster to instance, with replica counts and instance types written in the brief by indentation.</p>
+    <figure class="x-shot">
+      <picture class=""><source media="(prefers-color-scheme: dark)" type="image/webp" srcset="/assets/skills/c4x/deploy-dark-960.webp 960w, /assets/skills/c4x/deploy-dark-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><source type="image/webp" srcset="/assets/skills/c4x/deploy-light-960.webp 960w, /assets/skills/c4x/deploy-light-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/skills/c4x/deploy-light.png" width="1600" height="1137" alt="Deployment view: an AWS region containing an EKS cluster with three services and their pod counts, a Databricks workspace, and managed MSK, ElastiCache and S3." loading="lazy" decoding="async"></picture>
+    </figure>
+  </section>
+
+  <section class="shell" aria-labelledby="how-title">
+    <div class="section-head"><h2 id="how-title">How the skill works</h2><p class="eyebrow">06</p></div>
+    <ol class="x-steps">
+      <li><h3>Read the input</h3><p>A brief, meeting notes, an RFC, an existing <code>.c4</code> or <code>.dsl</code>, or the repository itself.</p></li>
+      <li><h3>Draft the brief</h3><p>Gaps become <code>?</code> plus an open question. You confirm before anything is generated.</p></li>
+      <li><h3>Lint</h3><p>17 rules in three levels: errors that block, warnings that break C4 practice, suggestions.</p></li>
+      <li><h3>Generate and validate</h3><p>LikeC4 files, then <code>npx likec4 validate</code>. A model that doesn&#8217;t parse isn&#8217;t handed over.</p></li>
+      <li><h3>Views and report</h3><p>Context, containers, components, each flow, each environment, each phase. Then the files, lint results and open questions.</p></li>
+    </ol>
+  </section>
+
+  <section class="shell" aria-labelledby="cmp-title">
+    <div class="section-head"><h2 id="cmp-title">Compared with other C4 skills</h2><p class="eyebrow">07</p></div>
+    <div class="x-table-wrap">
+      <table class="x-table">
+        <thead><tr><th scope="col"></th><th scope="col">Typical C4 skill</th><th scope="col">c4x</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Input</th><td>Free-text prompt or codebase</td><td>Reviewable brief with a fixed grammar</td></tr>
+          <tr><th scope="row">Output</th><td>Mermaid, PlantUML or LikeC4</td><td>LikeC4 or Structurizr, valid C4 with a strict export</td></tr>
+          <tr><th scope="row">Ownership, SLOs, risk</th><td>Not modelled</td><td>Tags and metadata on every element</td></tr>
+          <tr><th scope="row">Tickets</th><td>Not modelled</td><td>Linear or Jira IDs, live status when connected</td></tr>
+          <tr><th scope="row">Planned changes</th><td>Separate diagrams</td><td>Dated phases as a diff from one model</td></tr>
+          <tr><th scope="row">Latency</th><td>Not modelled</td><td>Per-step budgets checked against SLOs</td></tr>
+          <tr><th scope="row">Validation</th><td>Usually none</td><td>Brief lint plus <code>likec4 validate</code>; CI on the example</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="shell" aria-labelledby="faq-title">
+    <div class="section-head"><h2 id="faq-title">Notes</h2><p class="eyebrow">08</p></div>
+    <div class="x-faq">
+      <div><h3>Language</h3><p>The skill instructions and spec are in Portuguese (pt-BR) for now. Format keywords are English and briefs can be written in any language. An English translation is planned.</p></div>
+      <div><h3>Structurizr</h3><p>The Structurizr DSL mapping ships with the skill but hasn&#8217;t been validated against Structurizr yet. LikeC4 output is validated with LikeC4 1.60.0.</p></div>
+      <div><h3>Example data</h3><p>The recommendation platform in the screenshots is fictional: teams, numbers and ticket IDs are illustrative.</p></div>
+      <div><h3>License</h3><p>MIT. Issues and pull requests are welcome on <a href="https://github.com/vsouto/c4x" target="_blank" rel="noopener noreferrer">GitHub</a>.</p></div>
+    </div>
+  </section>
+
+  <section class="shell x-end" aria-labelledby="end-title">
+    <h2 id="end-title">Try it on your next architecture review.</h2>
+    <div class="cmd"><span class="cmd-label">Install</span><code id="cmd-npx2">npx skills add vsouto/c4x</code><button type="button" class="cmd-copy" data-copy="cmd-npx2" aria-label="Copy Install command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>Copy</span></button></div>
+    <div class="link-row">
+      <a class="btn btn-solid" href="https://github.com/vsouto/c4x" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>vsouto/c4x</a>
+      <a class="btn btn-ghost" href="https://github.com/vsouto/c4x/releases/tag/v0.1.0" target="_blank" rel="noopener noreferrer">Release notes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell foot">
+    <span>c4x by <a href="/">Victor Vieira Souto</a></span>
+    <nav>
+      <a href="https://github.com/vsouto/c4x" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/victorsouto/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="/">vsouto.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/js/c4x.js" defer></script>
+</body>
+</html>
