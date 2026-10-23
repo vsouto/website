@@ -15,6 +15,9 @@ skills/c4x.html         landing page for the c4x skill (served at /skills/c4x)
 assets/css/c4x.css      its styles, on top of site.css
 assets/js/c4x.js        its copy buttons and tabs
 assets/skills/c4x/      its screenshots and social card
+projects/ccaf-practice.html  landing page for CCA-F Practice (served at /projects/ccaf-practice);
+                        reuses c4x.css and c4x.js
+assets/projects/ccaf-practice/  its screenshots and social card
 ```
 
 ## Running it locally

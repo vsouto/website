@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCA-F Practice — unofficial practice exam for Claude Certified Architect · Victor Vieira Souto</title>
+<meta name="description" content="CCA-F Practice is a free, open-source, unofficial practice exam for the Claude Certified Architect – Foundations certification: 169 scenario-based questions, multiple-response items, per-domain scoring and progress tracking in the browser.">
+<meta name="author" content="Victor Vieira Souto">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vsouto.com/projects/ccaf-practice">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Victor Vieira Souto">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://vsouto.com/projects/ccaf-practice">
+<meta property="og:title" content="CCA-F Practice — unofficial Claude Certified Architect practice exam">
+<meta property="og:description" content="169 scenario-based questions, multiple-response items, a 60-question full mock and per-domain scoring. Free and open source.">
+<meta property="og:image" content="https://vsouto.com/assets/projects/ccaf-practice/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CCA-F Practice results screen: a 77% ring, a scaled score of 790 marked pass, and accuracy bars for the five exam domains.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CCA-F Practice — unofficial Claude Certified Architect practice exam">
+<meta name="twitter:description" content="169 scenario-based questions, multiple-response items, a 60-question full mock and per-domain scoring. Free and open source.">
+<meta name="twitter:image" content="https://vsouto.com/assets/projects/ccaf-practice/og.png">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<!-- Shares the product-page layout of the c4x page. -->
+<link rel="stylesheet" href="/assets/css/c4x.css">
+<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/projects/ccaf-practice/question-960.webp 960w, /assets/projects/ccaf-practice/question-1600.webp 1600w" imagesizes="(min-width: 1120px) 1040px, calc(100vw - 40px)">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://vsouto.com/projects/ccaf-practice#app",
+      "name": "CCA-F Practice",
+      "url": "https://vsouto.github.io/ccaf-practice/",
+      "description": "Unofficial practice exam for the Claude Certified Architect – Foundations certification. Scenario-based questions weighted by exam domain, multiple-response items, scaled scoring and progress tracking in the browser.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any (web browser)",
+      "datePublished": "2026-10-23",
+      "license": "https://opensource.org/licenses/MIT",
+      "image": "https://vsouto.com/assets/projects/ccaf-practice/og.png",
+      "screenshot": [
+        "https://vsouto.com/assets/projects/ccaf-practice/question.png",
+        "https://vsouto.com/assets/projects/ccaf-practice/results.png"
+      ],
+      "keywords": "Claude Certified Architect, CCA-F, practice exam, Claude Code, Claude Agent SDK, MCP, certification study",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://vsouto.com/#person" },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/vsouto/ccaf-practice#code",
+      "name": "ccaf-practice",
+      "codeRepository": "https://github.com/vsouto/ccaf-practice",
+      "programmingLanguage": ["HTML", "JavaScript"],
+      "license": "https://opensource.org/licenses/MIT",
+      "author": { "@id": "https://vsouto.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vsouto.com/#person",
+      "name": "Victor Vieira Souto",
+      "url": "https://vsouto.com/",
+      "sameAs": ["https://github.com/vsouto", "https://www.linkedin.com/in/victorsouto/"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Victor Vieira Souto", "item": "https://vsouto.com/" },
+        { "@type": "ListItem", "position": 2, "name": "CCA-F Practice", "item": "https://vsouto.com/projects/ccaf-practice" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vsouto.com/projects/ccaf-practice#page",
+      "url": "https://vsouto.com/projects/ccaf-practice",
+      "name": "CCA-F Practice — unofficial practice exam for Claude Certified Architect",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://vsouto.com/#website" },
+      "mainEntity": { "@id": "https://vsouto.com/projects/ccaf-practice#app" },
+      "primaryImageOfPage": "https://vsouto.com/assets/projects/ccaf-practice/og.png"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="c4x">
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="home" href="/">vsouto.com</a>
+    <nav aria-label="Page">
+      <a href="#results">Results</a>
+      <a href="#banks">Questions</a>
+      <a href="#notes">Notes</a>
+      <a class="gh" href="https://github.com/vsouto/ccaf-practice" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="x-hero shell" aria-labelledby="x-title">
+    <p class="eyebrow">Practice exam · Open source · Unofficial</p>
+    <h1 id="x-title" class="x-name">CCA-F<span>.</span></h1>
+    <p class="x-lede">A free practice exam for the Claude Certified Architect – Foundations certification. Scenario-based questions weighted like the real blueprint, &#8220;select two&#8221; items, a scaled score against the 720 pass line, and a running list of what you keep getting wrong.</p>
+
+    <div class="x-install">
+      <div class="cmd"><span class="cmd-label">Run locally</span><code id="cmd-clone">git clone https://github.com/vsouto/ccaf-practice</code><button type="button" class="cmd-copy" data-copy="cmd-clone" aria-label="Copy clone command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>Copy</span></button></div>
+    </div>
+
+    <div class="link-row">
+      <a class="btn btn-solid" href="https://vsouto.github.io/ccaf-practice/" target="_blank" rel="noopener noreferrer">Take a practice exam <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="https://github.com/vsouto/ccaf-practice" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>View on GitHub</a>
+    </div>
+  </section>
+
+  <figure class="x-shot x-shot-hero shell">
+    <picture class=""><source type="image/webp" srcset="/assets/projects/ccaf-practice/question-960.webp 960w, /assets/projects/ccaf-practice/question-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/projects/ccaf-practice/question.png" width="1600" height="1142" alt="A multiple-response question from the Developer Productivity scenario, question 40 of 60, with a Select 2 badge and two of five options selected." loading="eager" fetchpriority="high" decoding="async"></picture>
+    <figcaption>A &#8220;select two&#8221; question in the 60-question mock. Both answers have to be right to score.</figcaption>
+  </figure>
+
+  <section class="shell x-facts" aria-label="At a glance">
+    <dl>
+      <div><dt>Questions</dt><dd>169 across three banks, plus an 8-question gap-fill quiz</dd></div>
+      <div><dt>Formats</dt><dd>Multiple choice and multiple response, scored all-or-nothing</dd></div>
+      <div><dt>Weighting</dt><dd>Five domains at 27 / 18 / 20 / 20 / 15 %</dd></div>
+      <div><dt>Runs in</dt><dd>Any browser. No account, no install; progress stays on your device</dd></div>
+    </dl>
+  </section>
+
+  <section id="results" class="shell" aria-labelledby="results-title">
+    <div class="section-head"><h2 id="results-title">Results you can act on</h2><p class="eyebrow">01</p></div>
+    <div class="x-cols x-cols-top">
+      <div class="x-copy">
+        <p>Every exam ends with a scaled score from 100 to 1000 against the 720 pass mark, the accuracy for each of the five domains, and an explanation for every question, including why the other options are wrong.</p>
+        <ul class="x-list">
+          <li>Pick 3, 5, 10, 20 or 40 questions, drawn at random in the blueprint&#8217;s proportions, or run the 60-question mock in scenario order.</li>
+          <li>Missed questions are collected automatically and clear themselves when you get them right in a later exam.</li>
+          <li>A readiness check looks at your last three exams and every domain before it calls you ready.</li>
+        </ul>
+      </div>
+      <figure class="x-shot">
+        <picture class=""><source type="image/webp" srcset="/assets/projects/ccaf-practice/results-960.webp 960w, /assets/projects/ccaf-practice/results-1600.webp 1600w" sizes="(min-width: 960px) 560px, calc(100vw - 40px)"><img src="/assets/projects/ccaf-practice/results.png" width="1600" height="918" alt="Results screen: a 77% ring, scaled score 790 marked pass, 46 of 60 correct, and bars for each domain, with Prompt Engineering at 8 of 12 below the pass line." loading="lazy" decoding="async"></picture>
+      </figure>
+    </div>
+  </section>
+
+  <section id="banks" class="shell" aria-labelledby="banks-title">
+    <div class="section-head"><h2 id="banks-title">Question banks</h2><p class="eyebrow">02</p></div>
+    <p class="x-intro">Each bank is one file with the same shape, so new sets drop in without touching the app. All three are written from the public exam guide&#8217;s domains and task statements.</p>
+    <div class="x-table-wrap">
+      <table class="x-table">
+        <thead><tr><th scope="col">Bank</th><th scope="col">Questions</th><th scope="col">Author</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Original set</th><td>44</td><td>Victor Vieira Souto</td></tr>
+          <tr><th scope="row">Alter</th><td>65</td><td><a href="https://github.com/OlivierAlter/Claude-Certified-Architect-Foundations-Certification-Exam" target="_blank" rel="noopener noreferrer">Olivier Legris</a></td></tr>
+          <tr><th scope="row">Full mock</th><td>60, ten per scenario</td><td><a href="https://www.linkedin.com/in/purcellmatthew" target="_blank" rel="noopener noreferrer">Matthew Purcell</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="notes" class="shell" aria-labelledby="notes-title">
+    <div class="section-head"><h2 id="notes-title">Notes</h2><p class="eyebrow">03</p></div>
+    <div class="x-faq">
+      <div><h3>Unofficial</h3><p>Not affiliated with, endorsed by, or sponsored by Anthropic. &#8220;Claude&#8221; and &#8220;Anthropic&#8221; are Anthropic&#8217;s trademarks, used here only to name the certification.</p></div>
+      <div><h3>No exam content</h3><p>No questions come from the real exam or the official practice test. Questions that copied the exam guide&#8217;s sample questions were removed before publishing.</p></div>
+      <div><h3>Privacy</h3><p>Scores and missed questions are kept in your browser&#8217;s local storage. Nothing is sent anywhere.</p></div>
+      <div><h3>License</h3><p>The app and the original set are MIT. The Alter and Purcell sets belong to their authors and are included with credit.</p></div>
+    </div>
+  </section>
+
+  <section class="shell x-end" aria-labelledby="end-title">
+    <h2 id="end-title">See where you stand before exam day.</h2>
+    <div class="link-row">
+      <a class="btn btn-solid" href="https://vsouto.github.io/ccaf-practice/" target="_blank" rel="noopener noreferrer">Take a practice exam <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="https://github.com/vsouto/ccaf-practice" target="_blank" rel="noopener noreferrer">vsouto/ccaf-practice</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell foot">
+    <span>CCA-F Practice by <a href="/">Victor Vieira Souto</a></span>
+    <nav>
+      <a href="https://github.com/vsouto/ccaf-practice" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/victorsouto/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="/">vsouto.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/js/c4x.js" defer></script>
+</body>
+</html>
