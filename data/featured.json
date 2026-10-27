@@ -29,6 +29,14 @@
       "blurb": "A Brazilian condominium portal using AI to change how people search for and manage where they live. In development."
     },
     {
+      "title": "Bojji",
+      "link": "/projects/bojji",
+      "cta": "About the project",
+      "image_url": "assets/projects/bojji/cover.png",
+      "kicker": "Open source",
+      "blurb": "A free notes and tasks app that keeps everything as Markdown files in a private repository in your own GitHub. Early."
+    },
+    {
       "match": "Questrade Financial Solutions",
       "kicker": "Fintech",
       "blurb": "Product interfaces for Questrade, the Canadian online brokerage and wealth platform."

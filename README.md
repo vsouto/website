@@ -18,6 +18,9 @@ assets/skills/c4x/      its screenshots and social card
 projects/ccaf-practice.html  landing page for CCA-F Practice (served at /projects/ccaf-practice);
                         reuses c4x.css and c4x.js
 assets/projects/ccaf-practice/  its screenshots and social card
+projects/bojji.html     landing page for Bojji (served at /projects/bojji);
+                        reuses c4x.css and c4x.js
+assets/projects/bojji/  its screenshots, social card and cover.png, the source of its home card
 ```
 
 ## Running it locally
@@ -76,6 +79,11 @@ The image is downloaded and cropped to 808x632.
   "blurb": "..."
 }
 ```
+
+`image_url` can also be a path inside the repo (no `http`), for a cover made from
+your own screenshots — Bojji's card is made from
+`assets/projects/bojji/cover.png`. A `link` that starts with `/` is a page on
+this site and opens in the same tab.
 
 `image_anchor` is `center` (default), `left`, `right`, `top` or `bottom`. Use it
 when the source image has text against one edge — Kondomino's headline sits on

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bojji — free, open-source notes and tasks kept in your own GitHub · Victor Vieira Souto</title>
+<meta name="description" content="Bojji is a free, open-source notes and tasks app. Every note and task is a plain Markdown file in a private repository in your own GitHub account: owned by you, versioned on every save, readable without Bojji, and free to host.">
+<meta name="author" content="Victor Vieira Souto">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://vsouto.com/projects/bojji">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Victor Vieira Souto">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://vsouto.com/projects/bojji">
+<meta property="og:title" content="Bojji — notes and tasks kept in your own GitHub">
+<meta property="og:description" content="Free and open source. Notes and tasks as plain Markdown in a private repository you own, with every save a commit. No storage servers, nothing to pay for sync.">
+<meta property="og:image" content="https://vsouto.com/assets/projects/bojji/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bojji showing the Siemens tag: four open tasks with due dates, a note, and the task Send the Q4 proposal open with its tags and due date.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bojji — notes and tasks kept in your own GitHub">
+<meta name="twitter:description" content="Free and open source. Notes and tasks as plain Markdown in a private repository you own, with every save a commit. No storage servers, nothing to pay for sync.">
+<meta name="twitter:image" content="https://vsouto.com/assets/projects/bojji/og.png">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<!-- Shares the product-page layout of the c4x page. -->
+<link rel="stylesheet" href="/assets/css/c4x.css">
+<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/projects/bojji/tag-light-960.webp 960w, /assets/projects/bojji/tag-light-1600.webp 1600w" imagesizes="(min-width: 1120px) 1040px, calc(100vw - 40px)">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://vsouto.com/projects/bojji#app",
+      "name": "Bojji",
+      "url": "https://vsouto.github.io/bojji/",
+      "description": "Free, open-source notes and tasks app. Notes and tasks are plain Markdown files in a private repository in the user's own GitHub account, read and written through the GitHub API, with no storage servers.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Any (web browser)",
+      "license": "https://opensource.org/licenses/MIT",
+      "image": "https://vsouto.com/assets/projects/bojji/og.png",
+      "screenshot": [
+        "https://vsouto.com/assets/projects/bojji/tag-light.png",
+        "https://vsouto.com/assets/projects/bojji/note-dark.png",
+        "https://vsouto.com/assets/projects/bojji/week-light.png"
+      ],
+      "keywords": "notes app, task manager, Markdown, GitHub, open source, local-first, own your data",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://vsouto.com/#person" },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/vsouto/bojji#code",
+      "name": "bojji",
+      "codeRepository": "https://github.com/vsouto/bojji",
+      "programmingLanguage": ["JavaScript", "HTML", "CSS"],
+      "runtimePlatform": "Node.js 22",
+      "license": "https://opensource.org/licenses/MIT",
+      "author": { "@id": "https://vsouto.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vsouto.com/#person",
+      "name": "Victor Vieira Souto",
+      "url": "https://vsouto.com/",
+      "sameAs": ["https://github.com/vsouto", "https://www.linkedin.com/in/victorsouto/"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Victor Vieira Souto", "item": "https://vsouto.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Bojji", "item": "https://vsouto.com/projects/bojji" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://vsouto.com/projects/bojji#page",
+      "url": "https://vsouto.com/projects/bojji",
+      "name": "Bojji — free, open-source notes and tasks kept in your own GitHub",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://vsouto.com/#website" },
+      "mainEntity": { "@id": "https://vsouto.com/projects/bojji#app" },
+      "primaryImageOfPage": "https://vsouto.com/assets/projects/bojji/og.png"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="c4x">
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="home" href="/">vsouto.com</a>
+    <nav aria-label="Page">
+      <a href="#why">Why</a>
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#status">Status</a>
+      <a class="gh" href="https://github.com/vsouto/bojji" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="x-hero shell" aria-labelledby="x-title">
+    <p class="eyebrow">Notes and tasks · Open source · Early</p>
+    <h1 id="x-title" class="x-name">Bojji<span>.</span></h1>
+    <p class="x-lede">A free notes and tasks app with no servers of its own. Every note and task is a plain Markdown file in a private repository in your GitHub account, so the data is yours, every save is a commit, and there is nothing to pay for sync.</p>
+
+    <div class="x-install">
+      <div class="cmd"><span class="cmd-label">Run locally</span><code id="cmd-clone">git clone https://github.com/vsouto/bojji</code><button type="button" class="cmd-copy" data-copy="cmd-clone" aria-label="Copy clone command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg><span>Copy</span></button></div>
+    </div>
+
+    <div class="link-row">
+      <a class="btn btn-solid" href="https://vsouto.github.io/bojji/" target="_blank" rel="noopener noreferrer">Open the demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="https://github.com/vsouto/bojji" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>View on GitHub</a>
+    </div>
+  </section>
+
+  <figure class="x-shot x-shot-hero shell">
+    <picture class=""><source type="image/webp" srcset="/assets/projects/bojji/tag-light-960.webp 960w, /assets/projects/bojji/tag-light-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/projects/bojji/tag-light.png" width="1600" height="1000" alt="Bojji with the Siemens tag selected: four open tasks with their due dates, the Siemens kickoff note below them, and the task Send the Q4 proposal open with its tags and a due date of Thursday 29 October." loading="eager" fetchpriority="high" decoding="async"></picture>
+    <figcaption>Clicking a tag gathers everything that carries it: open tasks, notes and, one click away, the completed ones. Sample data.</figcaption>
+  </figure>
+
+  <section class="shell x-facts" aria-label="At a glance">
+    <dl>
+      <div><dt>Storage</dt><dd>A private repository in your own GitHub account</dd></div>
+      <div><dt>Format</dt><dd>Plain Markdown files, readable without Bojji</dd></div>
+      <div><dt>History</dt><dd>Every save is a commit</dd></div>
+      <div><dt>Cost</dt><dd>Free and MIT licensed. Nothing to host</dd></div>
+    </dl>
+  </section>
+
+  <section id="why" class="shell" aria-labelledby="why-title">
+    <div class="section-head"><h2 id="why-title">Why it exists</h2><p class="eyebrow">01</p></div>
+    <p class="x-intro">The good note and task tools charge for sync or cap their free plans: Evernote, Obsidian Sync, Todoist. Syncing a few kilobytes of text between your own devices should not need a subscription, and the text should not live in someone else&#8217;s database to begin with.</p>
+    <p class="x-intro">Bojji runs no storage servers. It reads and writes your notes and tasks directly through the GitHub API, in a repository you already own. If Bojji disappeared tomorrow, the files would still be there, in Markdown, with their full history.</p>
+  </section>
+
+  <section id="how" class="shell" aria-labelledby="how-title">
+    <div class="section-head"><h2 id="how-title">How it works</h2><p class="eyebrow">02</p></div>
+    <ol class="x-steps">
+      <li><h3>Your repository</h3><p>Notes and tasks are kept in a private repository in your GitHub account. No Bojji server holds a copy.</p></li>
+      <li><h3>Plain Markdown</h3><p>Each note and each task is a Markdown file. Open it on GitHub or in any editor and it reads the same.</p></li>
+      <li><h3>Every save a commit</h3><p>Changes are versioned as you go. The sync status shows each one as &#8220;Kept in your GitHub&#8221;.</p></li>
+      <li><h3>No silent overwrites</h3><p>If the same item changed somewhere else, Bojji detects the conflict instead of writing over it.</p></li>
+    </ol>
+  </section>
+
+  <section id="features" class="shell" aria-labelledby="features-title">
+    <div class="section-head"><h2 id="features-title">Notes and tasks, together</h2><p class="eyebrow">03</p></div>
+    <div class="x-cols x-cols-top">
+      <div class="x-copy">
+        <p>Tasks and notes sit side by side and share the same tags, so a project&#8217;s to-dos and its meeting notes are one click apart.</p>
+        <ul class="x-list">
+          <li>Tasks with due dates, in Today, a Week schedule that runs Monday to Sunday including the days already past, All tasks and Completed.</li>
+          <li>Markdown notes, rendered in place as you read them.</li>
+          <li>Tags on tasks and notes, in matte colours. Click one to see everything that has it.</li>
+          <li>Light and dark mode, and a layout that works at phone width.</li>
+        </ul>
+      </div>
+      <figure class="x-shot">
+        <picture class=""><source type="image/webp" srcset="/assets/projects/bojji/week-light-960.webp 960w, /assets/projects/bojji/week-light-1600.webp 1600w" sizes="(min-width: 960px) 560px, calc(100vw - 40px)"><img src="/assets/projects/bojji/week-light.png" width="1600" height="1000" alt="Week schedule for 26 October to 1 November: tasks grouped under Monday, Today, Wednesday, Thursday and Friday, each with a coloured tag, and the task Prepare the workshop demo open." loading="lazy" decoding="async"></picture>
+      </figure>
+    </div>
+
+    <figure class="x-shot x-shot-wide">
+      <picture class=""><source type="image/webp" srcset="/assets/projects/bojji/note-dark-960.webp 960w, /assets/projects/bojji/note-dark-1600.webp 1600w" sizes="(min-width: 1120px) 1040px, calc(100vw - 40px)"><img src="/assets/projects/bojji/note-dark.png" width="1600" height="1000" alt="Dark mode: the All notes list with the Siemens kickoff note open, rendered from Markdown with Decisions and Open questions headings and bulleted lists." loading="lazy" decoding="async"></picture>
+      <figcaption>A note in dark mode. It is written in Markdown and stored as a Markdown file; Bojji renders it in place.</figcaption>
+    </figure>
+
+    <div class="x-cols x-phones">
+      <div class="x-copy">
+        <p>On a phone the three panes become one, with a back button to the lists. Same data, same repository.</p>
+        <p class="x-note">Native mobile apps are planned for later. Today it is the web app at phone width.</p>
+      </div>
+      <div class="x-pair">
+        <figure class="x-shot">
+          <picture class=""><source type="image/webp" srcset="/assets/projects/bojji/mobile-tag-390.webp 390w, /assets/projects/bojji/mobile-tag-780.webp 780w" sizes="(min-width: 960px) 260px, calc(50vw - 30px)"><img src="/assets/projects/bojji/mobile-tag.png" width="780" height="1240" alt="Bojji on a phone: the Siemens tag with four tasks and the Siemens kickoff note." loading="lazy" decoding="async"></picture>
+        </figure>
+        <figure class="x-shot">
+          <picture class=""><source type="image/webp" srcset="/assets/projects/bojji/mobile-note-390.webp 390w, /assets/projects/bojji/mobile-note-780.webp 780w" sizes="(min-width: 960px) 260px, calc(50vw - 30px)"><img src="/assets/projects/bojji/mobile-note.png" width="780" height="1240" alt="Bojji on a phone: the note Weekend in Porto with Personal and Travel tags and two bulleted lists." loading="lazy" decoding="async"></picture>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="status" class="shell" aria-labelledby="status-title">
+    <div class="section-head"><h2 id="status-title">Where it stands</h2><p class="eyebrow">04</p></div>
+    <div class="x-faq">
+      <div><h3>Early</h3><p>Bojji runs locally today, with Node 22 and your GitHub CLI login. &#8220;Sign in with GitHub&#8221; for everyone is not built yet.</p></div>
+      <div><h3>Demo</h3><p>A public demo with sample data is at <a href="https://vsouto.github.io/bojji/" target="_blank" rel="noopener noreferrer">vsouto.github.io/bojji</a>.</p></div>
+      <div><h3>Mobile</h3><p>The web app works at phone width. Native mobile apps are planned for later.</p></div>
+      <div><h3>License</h3><p>MIT. Built by Victor Vieira Souto with Claude Code.</p></div>
+    </div>
+  </section>
+
+  <section class="shell x-end" aria-labelledby="end-title">
+    <h2 id="end-title">Your notes, in a repository you own.</h2>
+    <div class="link-row">
+      <a class="btn btn-solid" href="https://vsouto.github.io/bojji/" target="_blank" rel="noopener noreferrer">Open the demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost" href="https://github.com/vsouto/bojji" target="_blank" rel="noopener noreferrer">vsouto/bojji</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="shell foot">
+    <span>Bojji by <a href="/">Victor Vieira Souto</a></span>
+    <nav>
+      <a href="https://github.com/vsouto/bojji" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/victorsouto/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="/">vsouto.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/js/c4x.js" defer></script>
+</body>
+</html>

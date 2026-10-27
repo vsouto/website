@@ -43,6 +43,10 @@ CARD_W, CARD_H = 808, 632
 
 
 def get(url, binary=False):
+    if not url.startswith(("http://", "https://")):
+        # caminho dentro do repo (ex.: screenshot de um projeto proprio)
+        raw = (ROOT / url.lstrip("/")).read_bytes()
+        return raw if binary else raw.decode("utf-8", "replace")
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=45) as r:
         raw = r.read()
@@ -134,8 +138,10 @@ def fit_cover(raw, dest, anchor):
 def render_cards(cards):
     rows = []
     for c in cards:
+        # paginas do proprio site abrem na mesma aba
+        ext = ' target="_blank" rel="noopener noreferrer"' if c["link"].startswith("http") else ""
         rows.append(
-            f"""        <a class="work-card" href="{c['link']}" target="_blank" rel="noopener noreferrer">
+            f"""        <a class="work-card" href="{c['link']}"{ext}>
           <div class="work-shot">
             <img src="{c['image']}" alt="Cover of the {c['name']} project" width="808" height="632" loading="lazy" decoding="async">
           </div>

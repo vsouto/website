@@ -139,6 +139,12 @@
 .x-shot-tall picture{max-height:760px}
 .x-shot-tall img{object-fit:cover; object-position:top}
 .x-shot-code picture{border-color:#1F2123; background:#0A0B0C}
+.x-shot-wide{margin-top:clamp(40px,7vh,72px)}
+
+/* two phone screenshots side by side */
+.x-phones{margin-top:clamp(40px,7vh,72px)}
+.x-pair{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(14px,2vw,24px); max-width:560px}
+.x-pair picture{border-radius:20px}
 
 /* ---------------- facts ---------------- */
 
