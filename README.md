@@ -8,6 +8,7 @@ index.html              the whole page
 assets/css/site.css     tokens + layout
 assets/js/field.js      the hero canvas, and the scroll reveals
 assets/work/*.webp      project covers, synced from Behance
+assets/img/victor.*     portrait in the About card (webp) and in the schema.org Person (jpg)
 data/projects.json      full Behance project list (generated)
 data/featured.json      which projects appear on the home page (hand-edited)
 scripts/sync-behance.py refreshes the two above

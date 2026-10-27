@@ -224,6 +224,29 @@ section{padding-block:clamp(72px,11vh,132px)}
   max-width:640px;
 }
 
+.intro{
+  display:grid;
+  gap:22px;
+  align-items:start;
+}
+@media (min-width:640px){
+  .intro{grid-template-columns:148px 1fr; gap:28px}
+}
+.portrait{
+  display:block;
+  width:112px;
+  height:auto;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid var(--hairline);
+  box-shadow:var(--lift);
+  background:#111314;
+}
+@media (min-width:640px){
+  .portrait{width:100%}
+}
+
 .card-title{
   font-family:"Schibsted Grotesk","Instrument Sans",sans-serif;
   font-weight:700;
