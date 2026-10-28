@@ -14,7 +14,7 @@
   var opener = null;
   var openedAt = 0;
   var sitekey = form.getAttribute("data-turnstile-sitekey");
-  var captcha = null, token = null;
+  var captcha = null, token = null, asked = false;
 
   function loadCaptcha() {
     if (!sitekey || captcha !== null) return;
@@ -25,6 +25,7 @@
         appearance: "interaction-only",
         language: "pt-br",
         callback: function (t) { token = t; },
+        "before-interactive-callback": function () { asked = true; },
         "expired-callback": function () { token = null; },
         "error-callback": function () { token = null; }
       });
@@ -75,7 +76,12 @@
       if (!ok && !bad) bad = f[k];
     });
     if (bad) { status.textContent = "Faltou preencher algo."; bad.focus(); return; }
-    if (sitekey && !token) { status.textContent = "Só um instante, confirmando que você não é um robô…"; return; }
+    if (sitekey && !token) {
+      status.textContent = asked
+        ? "Marque a caixa acima para confirmar que você é humano."
+        : "Só um instante, confirmando que você não é um robô…";
+      return;
+    }
 
     send.disabled = true;
     status.textContent = "Enviando…";
