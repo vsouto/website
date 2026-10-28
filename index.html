@@ -314,7 +314,7 @@
 </main>
 
 <dialog id="contact-dialog" class="sheet" lang="pt-BR" aria-labelledby="sheet-title">
-  <form class="sheet-form" novalidate>
+  <form class="sheet-form" novalidate data-turnstile-sitekey="">
     <header class="sheet-head">
       <p class="eyebrow">Contato</p>
       <button class="sheet-x" type="button" data-close aria-label="Fechar">
@@ -334,6 +334,7 @@
       <textarea name="problem" rows="5" maxlength="4000" required></textarea>
     </label>
     <label class="hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+    <div class="sheet-captcha"></div>
 
     <div class="sheet-foot">
       <p class="sheet-status" role="status" aria-live="polite"></p>
@@ -363,6 +364,6 @@
 </footer>
 
 <script src="assets/js/field.js" defer></script>
-<script src="assets/js/contact.js" defer></script>
+<script src="assets/js/contact.js?v=2" defer></script>
 </body>
 </html>

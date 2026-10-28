@@ -589,6 +589,7 @@ html.sheet-open{overflow:hidden}
 
 /* honeypot: present for bots, gone for people and screen readers */
 .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+.sheet-captcha:not(:empty){margin-top:4px}
 
 .sheet-foot{
   display:flex;
